@@ -14,7 +14,7 @@ public class ShareServiceImpl implements ShareService {
     private ShareMapper shareMapper;
 
     @Override
-    public List<ShareDTO> getAllShare() {
-        return shareMapper.getAllShare();
+    public List<ShareDTO> getAllShare(int id) {
+        return shareMapper.getAllShare(id);
     }
 }
