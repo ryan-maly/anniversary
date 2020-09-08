@@ -12,7 +12,7 @@ public class Share {
     public Integer favor_num;
     public Integer collect_num;
     public Integer comment_num;
-    public Date date;
+    public Date pubdate;
 
     public Integer getId() {
         return id;
@@ -71,10 +71,10 @@ public class Share {
     }
 
     public Date getDate() {
-        return date;
+        return pubdate;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.pubdate = date;
     }
 }

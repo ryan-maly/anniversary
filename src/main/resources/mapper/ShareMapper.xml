@@ -9,4 +9,9 @@
         from share s, share_status st, share_img si
         where si.share_id = s.id and st.share_id = s.id and s.user_id = #{userid}
     </select>
+
+    <insert id="addShare" parameterType="Share">
+        insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
+        values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})
+    </insert>
 </mapper>

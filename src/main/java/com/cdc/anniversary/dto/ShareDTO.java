@@ -45,7 +45,7 @@ public class ShareDTO extends Share {
                 ", favor_num=" + favor_num +
                 ", collect_num=" + collect_num +
                 ", comment_num=" + comment_num +
-                ", date=" + date +
+                ", date=" + pubdate +
                 '}';
     }
 }
