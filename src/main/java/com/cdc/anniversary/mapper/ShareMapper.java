@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 @Repository
 public interface ShareMapper {
-    List<ShareDTO> getAllShare(int id);
+    List<ShareDTO> getAllShare(int userid);
 }

@@ -16,8 +16,8 @@ public class ShareController {
     @Autowired
     private ShareService shareService;
 
-    @GetMapping("/all/{id}")
-    public List<ShareDTO> getAllShare(@PathVariable("id")int id){
-        return shareService.getAllShare(id);
+    @GetMapping("/all/{userid}")
+    public List<ShareDTO> getAllShare(@PathVariable("userid")int userid){
+        return shareService.getAllShare(userid);
     }
 }

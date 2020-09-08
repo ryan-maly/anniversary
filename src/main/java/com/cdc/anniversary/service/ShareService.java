@@ -5,5 +5,5 @@ import com.cdc.anniversary.dto.ShareDTO;
 import java.util.List;
 
 public interface ShareService {
-    List<ShareDTO> getAllShare(int id);
+    List<ShareDTO> getAllShare(int userid);
 }
