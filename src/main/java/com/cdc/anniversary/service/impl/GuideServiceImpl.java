@@ -27,4 +27,10 @@ public class GuideServiceImpl implements GuideService {
     public GuideDTO isExchanged(int id,int user_id) {
         return guideMapper.isExchanged(id,user_id);
     }
+
+    @Override
+    public void addExchange(int id, int user_id) {
+        guideMapper.addExchange(id,user_id);
+
+    }
 }
