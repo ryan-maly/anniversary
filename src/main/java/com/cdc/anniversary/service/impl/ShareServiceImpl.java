@@ -40,7 +40,7 @@ public class ShareServiceImpl implements ShareService {
     }
 
     @Override
-    public Share getShareByTag(String tag, int userid) {
+    public List<ShareDTO> getShareByTag(String tag, int userid) {
         return shareMapper.getShareByTag(tag, userid);
     }
 }

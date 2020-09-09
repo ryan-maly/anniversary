@@ -42,7 +42,7 @@ class AnniversaryApplicationTests {
         comment.setDate(a);
 
         commentService.addComment(comment);
-
+        System.out.println(shareService.getShareByTag("share", 1));
     }
 
 }

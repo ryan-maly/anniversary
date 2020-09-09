@@ -26,7 +26,7 @@ public class ShareController {
     }
 
     @GetMapping("/tag/{tag}/{userid}")
-    public Object getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
-        return JSON.toJSON(shareService.getShareByTag(tag, userid));
+    public List<ShareDTO> getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
+        return shareService.getShareByTag(tag, userid);
     }
 }
