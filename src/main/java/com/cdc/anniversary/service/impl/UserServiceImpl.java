@@ -1,0 +1,20 @@
+package com.cdc.anniversary.service.impl;
+
+import com.cdc.anniversary.mapper.UserMapper;
+import com.cdc.anniversary.model.User;
+import com.cdc.anniversary.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public void addUser(User user) {
+        if(user != null){
+            userMapper.addUser(user);
+        }
+    }
+}
