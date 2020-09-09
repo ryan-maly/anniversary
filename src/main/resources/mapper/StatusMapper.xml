@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cdc.anniversary.mapper.StatusMapper">
+    <insert id="addStatus" parameterType="Status">
+        insert into share_status(share_id, user_id, is_favor, is_collect)
+        values (#{share_id}, #{user_id}, #{is_favor}, #{is_collect})
+    </insert>
+
+</mapper>
