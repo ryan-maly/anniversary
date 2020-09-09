@@ -35,7 +35,7 @@ public class GuideController {
     }
 
     @GetMapping("/addExchange/{id}/{user_id}/{integration}")
-    public String getAllGuide(@PathVariable("id") int id,@PathVariable("user_id") int user_id,@PathVariable("integration") int integration){
+    public String exchange(@PathVariable("id") int id,@PathVariable("user_id") int user_id,@PathVariable("integration") int integration){
 
         if(guideService.isExchanged(id,user_id)!=null){
             System.out.printf("已订阅，请勿重复操作");
