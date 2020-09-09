@@ -1,5 +1,6 @@
 package com.cdc.anniversary.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.ShareService;
@@ -22,5 +23,10 @@ public class ShareController {
     @PostMapping("/add")
     public void addShare(@RequestBody Share share){
         shareService.addShare(share);
+    }
+
+    @GetMapping("/tag/{tag}/{userid}")
+    public Object getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
+        return JSON.toJSON(shareService.getShareByTag(tag, userid));
     }
 }

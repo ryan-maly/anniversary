@@ -38,4 +38,9 @@ public class ShareServiceImpl implements ShareService {
         share.setDate(date);
         shareMapper.addShare(share);
     }
+
+    @Override
+    public Share getShareByTag(String tag, int userid) {
+        return shareMapper.getShareByTag(tag, userid);
+    }
 }

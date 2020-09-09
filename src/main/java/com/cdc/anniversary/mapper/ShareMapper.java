@@ -12,4 +12,5 @@ import java.util.List;
 public interface ShareMapper {
     List<ShareDTO> getAllShare(int userid);
     void addShare(Share share);
+    Share getShareByTag(String tag, int userid);
 }

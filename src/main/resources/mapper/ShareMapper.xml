@@ -10,6 +10,12 @@
         where si.share_id = s.id and st.share_id = s.id and s.user_id = #{userid}
     </select>
 
+    <select id="getShareByTag" resultType="com.cdc.anniversary.model.Share">
+        select s.*, st.is_favor, st.is_collect, si.img
+        from share s, share_status st, share_img si
+        where si.share_id = s.id and st.share_id = s.id and s.user_id = #{1} and s.tag = #{0}
+    </select>
+
     <insert id="addShare" parameterType="Share">
         insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
         values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})
