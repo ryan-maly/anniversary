@@ -29,4 +29,9 @@ public class ShareController {
     public List<ShareDTO> getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
         return shareService.getShareByTag(tag, userid);
     }
+
+    @GetMapping("/{shareid}/{userid}")
+    public List<ShareDTO> getShareById(@PathVariable("shareid") int shareid, @PathVariable("userid") int userid){
+        return shareService.getShareById(shareid, userid);
+    }
 }

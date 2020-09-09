@@ -16,6 +16,12 @@
         where si.share_id = s.id and st.share_id = s.id and s.tag = #{param1} and s.user_id = #{param2}
     </select>
 
+    <select id="getShareById" resultType="com.cdc.anniversary.dto.ShareDTO">
+        select s.*, st.is_favor, st.is_collect, si.img
+        from share s, share_status st, share_img si
+        where si.share_id = s.id and st.share_id = s.id and s.id = #{param1} and s.user_id = #{param2}
+    </select>
+
     <insert id="addShare" parameterType="Share">
         insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
         values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})

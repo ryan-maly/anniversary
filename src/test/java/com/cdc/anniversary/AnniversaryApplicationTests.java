@@ -30,19 +30,5 @@ class AnniversaryApplicationTests {
 
         }
     }
-    @Test
-    void addComment(){
-        Comment comment = new Comment();
-        comment.setContent("今天的你确实很香2");
-        comment.setParent_id(1);
-        comment.setShare_id(1);
-        comment.setUser_id(1);
-        Date a = new Date();
-        a.setTime(2020-9-21);
-        comment.setDate(a);
-
-        commentService.addComment(comment);
-        System.out.println(shareService.getShareByTag("share", 1));
-    }
 
 }
