@@ -17,6 +17,11 @@
         from exchange e,guide g
         where  e.guide_id=#{id} and e.user_id=#{user_id} and g.id=#{id}
     </select>
+    <insert id="addExchange" parameterType="int"   >
+        insert into exchange (guide_id,user_id)
+            values (#{id},#{user_id})
+
+    </insert>
 
 
 </mapper>

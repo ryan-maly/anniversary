@@ -1,12 +1,24 @@
 package com.cdc.anniversary.model;
 
 public class User {
-    private Integer id;
-    private String userName;
-    private String avatar;
-    private String gender;
-    private String phone;
-    private Integer integration;
+    public  Integer id;
+    public  String username;
+    public  String avatar;
+    public  String gender;
+    public  String phone;
+    public Integer integration;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
+                ", integration=" + integration +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -16,12 +28,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAvatar() {
@@ -54,17 +66,5 @@ public class User {
 
     public void setIntegration(Integer integration) {
         this.integration = integration;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", integration=" + integration +
-                '}';
     }
 }

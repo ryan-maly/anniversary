@@ -11,4 +11,5 @@ public interface GuideMapper {
     List<Guide> getAllGuide();
     Guide getGuideByID(int id);
     GuideDTO isExchanged(int id,int user_id);
+    void addExchange(int id,int user_id);
 }

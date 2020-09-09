@@ -5,7 +5,9 @@ import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.mapper.ShareMapper;
 import com.cdc.anniversary.model.Comment;
 import com.cdc.anniversary.service.CommentService;
+import com.cdc.anniversary.service.GuideService;
 import com.cdc.anniversary.service.ShareService;
+import com.cdc.anniversary.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,10 @@ import java.util.List;
 class AnniversaryApplicationTests {
     @Autowired
     ShareMapper shareMapper;
+    @Autowired
+    GuideService guideService;
+    @Autowired
+    UserService userService;
 
     @Autowired
     CommentService commentService;
@@ -32,16 +38,8 @@ class AnniversaryApplicationTests {
     }
     @Test
     void addComment(){
-        Comment comment = new Comment();
-        comment.setContent("今天的你确实很香2");
-        comment.setParent_id(1);
-        comment.setShare_id(1);
-        comment.setUser_id(1);
-        Date a = new Date();
-        a.setTime(2020-9-21);
-        comment.setDate(a);
+        userService.UseIntegration(20);
 
-        commentService.addComment(comment);
 
     }
 
