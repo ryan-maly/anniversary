@@ -1,12 +1,10 @@
 package com.cdc.anniversary.controller;
 
 import com.cdc.anniversary.model.Comment;
+import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +19,5 @@ public class CommentController {
     }
 
     @GetMapping("add/{comment}")
-    public void addComment(@PathVariable("comment") Comment comment){
-
-        commentService.addComment(comment);
-    }
+    public void addComment(@RequestBody  Comment comment){ commentService.addComment(comment); }
 }
