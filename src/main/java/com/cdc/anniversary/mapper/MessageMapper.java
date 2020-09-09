@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface MessageMapper {
     List<Message> getMyMsg(int userid);
+    void addMyMsg(Message message);
 }

@@ -9,4 +9,9 @@
         where user_id = #{userid}
     </select>
 
+    <insert id="addMyMsg" parameterType="Message">
+        insert into message(user_id, content, pubdate)
+        values (#{user_id}, #{content}, #{pubdate})
+    </insert>
+
 </mapper>
