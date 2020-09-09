@@ -8,4 +8,8 @@
         update user set integration =integration-#{integration}
     </update>
 
+    <insert id="addUser" parameterType="User">
+        insert into user(username, avatar, gender, phone,integration)
+        values (#{username}, #{avatar}, #{gender}, #{phone},#{inregration})
+    </insert>
 </mapper>
