@@ -3,10 +3,7 @@ package com.cdc.anniversary.controller;
 import com.cdc.anniversary.model.Anniversary;
 import com.cdc.anniversary.service.AnniversaryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -25,5 +22,11 @@ public class AnniversaryController {
     @GetMapping("/getAnniversaries/{userId}")
     public List<Map<String,Object>> getAnniversaries(@PathVariable int userId){
         return anniversaryService.getAnniversaries(userId);
+    }
+
+    @GetMapping("/getAnnivesary/{anniversaryId}")
+    @ResponseBody
+    public Anniversary getAnniversary(@PathVariable int anniversaryId){
+        return anniversaryService.getAnniversary(anniversaryId);
     }
 }

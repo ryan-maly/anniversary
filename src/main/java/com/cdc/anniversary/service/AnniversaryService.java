@@ -8,5 +8,6 @@ import java.util.Map;
 public interface AnniversaryService {
     void addAnniversary(Anniversary anniversary);
     List<Map<String,Object>> getAnniversaries(int userId);
+    Anniversary getAnniversary(int anniversaryId);
 }
 

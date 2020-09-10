@@ -16,6 +16,11 @@
 
     <select id="getAnniversaries" parameterType="Anniversary" resultMap="AnniversaryPart">
         select id,title from anniversary
-        where id = #{userId}
+        where user_id = #{userId}
+    </select>
+
+    <select id="getAnniversary" parameterType="int" resultType="com.cdc.anniversary">
+        select * from anniversary
+        where id = #{annivesaryId}
     </select>
 </mapper>

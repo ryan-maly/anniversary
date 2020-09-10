@@ -24,4 +24,9 @@ public class AnniversaryServiceImpl implements AnniversaryService {
         return anniversaryMapper.getAnniversaries(userId);
     }
 
+    @Override
+    public Anniversary getAnniversary(int anniversaryId) {
+        return anniversaryMapper.getAnniversary(anniversaryId);
+    }
+
 }
