@@ -4,18 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.cdc.anniversary.mapper.AnniversaryMapper">
-    <resultMap id="AnniversaryPart" type="java.util.HashMap">
-        <id column="id" property="id"/>
-        <id column="title" property="title"/>
-    </resultMap>
 
     <insert id="addAnniversary" parameterType="Anniversary">
         insert into anniversary(user_id,title, icon, pubdate,remind_date,note,img)
         values (#{userId}, #{title}, #{icon}, #{pubdate},#{remindDate},#{note},#{img})
     </insert>
 
-    <select id="getAnniversaries" parameterType="Anniversary" resultMap="AnniversaryPart">
-        select id,title from anniversary
+    <select id="getAnniversaries" parameterType="int" resultType="Anniversary">
+        select * from anniversary
         where user_id = #{userId}
     </select>
 </mapper>

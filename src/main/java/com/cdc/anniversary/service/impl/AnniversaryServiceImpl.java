@@ -20,7 +20,7 @@ public class AnniversaryServiceImpl implements AnniversaryService {
     }
 
     @Override
-    public List<Map<String,Object>> getAnniversaries(int userId) {
+    public List<Anniversary> getAnniversaries(int userId) {
         return anniversaryMapper.getAnniversaries(userId);
     }
 }
