@@ -20,7 +20,7 @@ public class AnniversaryController {
     }
 
     @GetMapping("/getAnniversaries/{userId}")
-    public List<Map<String,Object>> getAnniversaries(@PathVariable int userId){
+    public List<Map<String,Object>> getAllAnniversary(@PathVariable int userId){
         return anniversaryService.getAnniversaries(userId);
     }
 
