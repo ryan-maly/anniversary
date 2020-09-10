@@ -22,10 +22,4 @@ public class AnniversaryController {
     public Object getAllAnniversary(@PathVariable int userId){
         return JSON.toJSONString(anniversaryService.getAnniversaries(userId));
     }
-
-    @GetMapping("/getAnniversary/{anniversaryId}")
-    @ResponseBody
-    public Object getAnniversary(@PathVariable int anniversaryId){
-        return JSON.toJSONString(anniversaryService.getAnniversary(anniversaryId));
-    }
 }

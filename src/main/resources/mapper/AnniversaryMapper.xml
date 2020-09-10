@@ -18,9 +18,4 @@
         select id,title from anniversary
         where user_id = #{userId}
     </select>
-
-    <select id="getAnniversary" parameterType="int" resultType="com.cdc.anniversary.model.Anniversary">
-        select * from anniversary
-        where id = #{annivesaryId}
-    </select>
 </mapper>

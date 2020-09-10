@@ -13,5 +13,4 @@ public interface AnniversaryMapper {
 
     void addAnniversary(Anniversary anniversary);
     List<Map<String,Object>> getAnniversaries(int userId);
-    Anniversary getAnniversary(int anniversaryId);
 }
