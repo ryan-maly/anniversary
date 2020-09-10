@@ -1,5 +1,7 @@
 package com.cdc.anniversary.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Anniversary {
@@ -7,7 +9,9 @@ public class Anniversary {
     private Integer userId;
     private String title;
     private Integer icon;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date pubdate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date remindDate;
     private String note;
     private String img;

@@ -15,7 +15,7 @@ public class AnniversaryController {
     private AnniversaryService anniversaryService;
 
     @RequestMapping("/addAnniversary")
-    public void addAnniversary(Anniversary anniversary){
+    public void addAnniversary(@RequestBody Anniversary anniversary){
         anniversaryService.addAnniversary(anniversary);
     }
 
