@@ -6,6 +6,9 @@ import com.cdc.anniversary.service.AnniversaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class AnniversaryServiceImpl implements AnniversaryService {
     @Autowired
@@ -14,6 +17,11 @@ public class AnniversaryServiceImpl implements AnniversaryService {
     @Override
     public void addAnniversary(Anniversary anniversary) {
         anniversaryMapper.addAnniversary(anniversary);
+    }
+
+    @Override
+    public List<Map<String,Object>> getAnniversaries(int userId) {
+        return anniversaryMapper.getAnniversaries(userId);
     }
 
 }
