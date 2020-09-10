@@ -19,7 +19,7 @@
         where user_id = #{userId}
     </select>
 
-    <select id="getAnniversary" parameterType="int" resultType="com.cdc.anniversary">
+    <select id="getAnniversary" parameterType="int" resultType="com.cdc.anniversary.model.Anniversary">
         select * from anniversary
         where id = #{annivesaryId}
     </select>

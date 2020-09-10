@@ -1,6 +1,6 @@
 package com.cdc.anniversary.model;
 
-public class Collection {
+public class Store {
     private Integer id;
     private Integer userId;
     private Integer shareId;
