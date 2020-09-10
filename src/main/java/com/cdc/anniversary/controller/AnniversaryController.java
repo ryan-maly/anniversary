@@ -24,7 +24,7 @@ public class AnniversaryController {
         return anniversaryService.getAnniversaries(userId);
     }
 
-    @GetMapping("/getAnnivesary/{anniversaryId}")
+    @GetMapping("/getAnniversary/{anniversaryId}")
     @ResponseBody
     public Anniversary getAnniversary(@PathVariable int anniversaryId){
         return anniversaryService.getAnniversary(anniversaryId);
