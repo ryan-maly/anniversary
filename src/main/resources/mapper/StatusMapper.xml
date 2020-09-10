@@ -9,4 +9,15 @@
         values (#{share_id}, #{user_id}, #{is_favor}, #{is_collect})
     </insert>
 
+    <update id="updateStatus">
+        update share_status
+        set is_favor = #{is_favor}, is_collect = #{is_collect}
+        where share_id = #{share_id} and user_id = #{user_id}
+    </update>
+
+    <select id="getStatus" resultType="com.cdc.anniversary.model.Status">
+        select * from share_status
+        where share_id = #{param1} and user_id = #{param2}
+    </select>
+
 </mapper>
