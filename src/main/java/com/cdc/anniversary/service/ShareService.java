@@ -10,4 +10,5 @@ public interface ShareService {
     void addShare(Share share);
     List<ShareDTO> getShareByTag(String tag, int userid);
     List<ShareDTO> getShareById(int shareid, int userid);
+    List<ShareDTO> getMyShare(int userId);
 }

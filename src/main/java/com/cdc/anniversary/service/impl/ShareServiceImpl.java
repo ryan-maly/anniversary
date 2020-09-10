@@ -48,4 +48,9 @@ public class ShareServiceImpl implements ShareService {
     public List<ShareDTO> getShareById(int shareid, int userid) {
         return shareMapper.getShareById(shareid, userid);
     }
+
+    @Override
+    public List<ShareDTO> getMyShare(int userId) {
+        return shareMapper.getMyShare(userId);
+    }
 }
