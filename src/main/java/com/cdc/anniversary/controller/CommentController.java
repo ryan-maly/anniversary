@@ -1,5 +1,6 @@
 package com.cdc.anniversary.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.model.Comment;
 import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.CommentService;
@@ -14,10 +15,10 @@ public class CommentController {
     @Autowired
     CommentService commentService;
     @GetMapping("getall/{id}")
-    public List<Comment> getComment(@PathVariable("id") int id){
-        return  commentService.getComment(id);
+    public Object getComment(@PathVariable("id") int id){
+        return JSON.toJSONString(commentService.getComment(id));
     }
 
-    @GetMapping("add/{comment}")
+    @PostMapping("/add")
     public void addComment(@RequestBody  Comment comment){ commentService.addComment(comment); }
 }

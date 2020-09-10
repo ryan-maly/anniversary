@@ -1,5 +1,6 @@
 package com.cdc.anniversary.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.model.Message;
 import com.cdc.anniversary.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class MessageController {
     private MessageService messageService;
 
     @GetMapping("/get/{userid}")
-    public List<Message> getMyMsg(@PathVariable int userid){
-        return messageService.getMyMsg(userid);
+    public Object getMyMsg(@PathVariable int userid){
+        return JSON.toJSONString(messageService.getMyMsg(userid));
     }
 
     @PostMapping("/add")

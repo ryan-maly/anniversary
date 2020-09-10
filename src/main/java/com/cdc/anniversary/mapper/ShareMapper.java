@@ -15,4 +15,10 @@ public interface ShareMapper {
     List<ShareDTO> getShareByTag(String tag, int userid);
     List<ShareDTO> getShareById(int shareid, int userid);
     List<ShareDTO> getMyShare(int userId);
+    int getFavorNum(int shareId);
+    void updateFavorNum(int favorNum, int shareId);
+    int getCollectNum(int shareId);
+    void updateCollectNum(int favorNum, int shareId);
+    int getCommentNum(int shareId);
+    void updateCommentNum(int shareId, int commentId);
 }
