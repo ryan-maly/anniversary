@@ -1,6 +1,5 @@
 package com.cdc.anniversary.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.ShareService;

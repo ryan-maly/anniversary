@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StatusMapper {
     void addStatus(Status status);
+    void updateStatus(Status status);
+    Status getStatus(int shareid, int userid);
 }

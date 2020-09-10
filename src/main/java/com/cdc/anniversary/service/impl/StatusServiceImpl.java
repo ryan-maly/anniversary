@@ -21,6 +21,11 @@ public class StatusServiceImpl implements StatusService {
         status.setUser_id(userid);
         status.setIs_favor(isFavor);
         status.setIs_collect(isCollect);
-        statusMapper.addStatus(status);
+        if (statusMapper.getStatus(shareid, userid) != null){
+            statusMapper.updateStatus(status);
+        }else {
+            statusMapper.addStatus(status);
+        }
+
     }
 }
