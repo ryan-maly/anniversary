@@ -7,6 +7,7 @@ import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -24,6 +25,8 @@ public class AnniversaryController {
 
     @GetMapping("/getAnniversaries/{userId}")
     public CommonResult<List<Anniversary>> getAllAnniversary(@PathVariable int userId){
-        return CommonResult.success(anniversaryService.getAnniversaries(userId));
+        List<Anniversary> anniversaryList = anniversaryService.getAnniversaries(userId);
+        Collections.reverse(anniversaryList);
+        return CommonResult.success(anniversaryList);
     }
 }

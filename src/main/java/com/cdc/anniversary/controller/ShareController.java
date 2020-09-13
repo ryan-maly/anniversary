@@ -8,6 +8,7 @@ import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -19,7 +20,9 @@ public class ShareController {
 
     @GetMapping("/all/{userid}")
     public CommonResult<List<ShareDTO>> getAllShare(@PathVariable("userid") int userid){
-        return CommonResult.success(shareService.getAllShare(userid));
+        List<ShareDTO> shareList = shareService.getAllShare(userid);
+        Collections.reverse(shareList);
+        return CommonResult.success(shareList);
     }
 
     @PostMapping("/add")
