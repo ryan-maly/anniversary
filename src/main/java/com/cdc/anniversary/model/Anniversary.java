@@ -1,34 +1,23 @@
 package com.cdc.anniversary.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 public class Anniversary {
     private Integer id;
-    private Integer userId;
+    private Integer user_id;
     private String title;
     private Integer icon;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date pubdate;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date remindDate;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy/MM/dd")
+    private Date remind_Date;
     private String note;
     private String img;
-
-    @Override
-    public String toString() {
-        return "Anniversary{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", title='" + title + '\'' +
-                ", icon=" + icon +
-                ", pubdate=" + pubdate +
-                ", remindDate=" + remindDate +
-                ", note='" + note + '\'' +
-                ", img='" + img + '\'' +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -38,12 +27,12 @@ public class Anniversary {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public String getTitle() {
@@ -70,12 +59,12 @@ public class Anniversary {
         this.pubdate = pubdate;
     }
 
-    public Date getRemindDate() {
-        return remindDate;
+    public Date getRemind_Date() {
+        return remind_Date;
     }
 
-    public void setRemindDate(Date remindDate) {
-        this.remindDate = remindDate;
+    public void setRemind_Date(Date remind_Date) {
+        this.remind_Date = remind_Date;
     }
 
     public String getNote() {

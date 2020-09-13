@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ShareServiceImpl implements ShareService {
@@ -29,14 +28,14 @@ public class ShareServiceImpl implements ShareService {
         Integer favor_num = share.getFavor_num();
         Integer collect_num = share.getCollect_num();
         Integer comment_num = share.getComment_num();
-        Date date = share.getDate();
+        Date date = share.getPubdate();
         share.setUser_id(user_id);
         share.setTag(tag);
         share.setContent(content);
         share.setFavor_num(favor_num);
         share.setCollect_num(collect_num);
         share.setComment_num(comment_num);
-        share.setDate(date);
+        share.setPubdate(date);
         shareMapper.addShare(share);
     }
 

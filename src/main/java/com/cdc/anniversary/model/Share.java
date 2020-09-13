@@ -1,6 +1,9 @@
 package com.cdc.anniversary.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 
@@ -12,6 +15,8 @@ public class Share {
     public Integer favor_num;
     public Integer collect_num;
     public Integer comment_num;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy/MM/dd")
     public Date pubdate;
 
     public Integer getId() {
@@ -70,11 +75,11 @@ public class Share {
         this.comment_num = comment_num;
     }
 
-    public Date getDate() {
+    public Date getPubdate() {
         return pubdate;
     }
 
-    public void setDate(Date date) {
-        this.pubdate = date;
+    public void setPubdate(Date pubdate) {
+        this.pubdate = pubdate;
     }
 }
