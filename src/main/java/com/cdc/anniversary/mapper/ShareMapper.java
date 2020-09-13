@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 
 @Mapper
@@ -24,4 +23,5 @@ public interface ShareMapper {
     void updateCollectNum(int favorNum, int shareId);
     int getCommentNum(int shareId);
     void updateCommentNum(int shareId, int commentId);
+    List<String> getImages(int shareid);
 }

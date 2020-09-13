@@ -2,11 +2,13 @@ package com.cdc.anniversary.dto;
 
 import com.cdc.anniversary.model.Share;
 
+import java.util.List;
+
 
 public class ShareDTO extends Share {
     public boolean is_favor;
     public boolean is_collect;
-    public String img;
+    public List<String> images;
 
     public boolean isIs_favor() {
         return is_favor;
@@ -24,28 +26,11 @@ public class ShareDTO extends Share {
         this.is_collect = is_collect;
     }
 
-    public String getImg() {
-        return img;
+    public List<String> getImages() {
+        return images;
     }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    @Override
-    public String toString() {
-        return "ShareDTO{" +
-                "is_favor=" + is_favor +
-                ", is_collect=" + is_collect +
-                ", img='" + img + '\'' +
-                ", id=" + id +
-                ", user_id=" + user_id +
-                ", tag='" + tag + '\'' +
-                ", content='" + content + '\'' +
-                ", favor_num=" + favor_num +
-                ", collect_num=" + collect_num +
-                ", comment_num=" + comment_num +
-                ", date=" + pubdate +
-                '}';
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }

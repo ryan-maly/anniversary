@@ -4,7 +4,6 @@ import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 
 import java.util.List;
-import java.util.Map;
 
 public interface ShareService {
     List<ShareDTO> getAllShare(int userid);
@@ -12,4 +11,5 @@ public interface ShareService {
     List<ShareDTO> getShareByTag(String tag, int userid);
     List<ShareDTO> getShareById(int shareid, int userid);
     List<ShareDTO> getMyShare(int userId);
+    List<String> getImage(int shareid);
 }

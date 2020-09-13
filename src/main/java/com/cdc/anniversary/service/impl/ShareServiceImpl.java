@@ -17,7 +17,12 @@ public class ShareServiceImpl implements ShareService {
 
     @Override
     public List<ShareDTO> getAllShare(int userid) {
-        return shareMapper.getAllShare(userid);
+        List<ShareDTO> shareDTOList = shareMapper.getAllShare(userid);
+        for (int i = 0; i < shareDTOList.size(); i++){
+            List<String> imgList = shareMapper.getImages(shareDTOList.get(i).getId());
+            shareDTOList.get(i).setImages(imgList);
+        }
+        return shareDTOList;
     }
 
     @Override
@@ -52,5 +57,10 @@ public class ShareServiceImpl implements ShareService {
     @Override
     public List<ShareDTO> getMyShare(int userId) {
         return shareMapper.getMyShare(userId);
+    }
+
+    @Override
+    public List<String> getImage(int shareid) {
+        return null;
     }
 }
