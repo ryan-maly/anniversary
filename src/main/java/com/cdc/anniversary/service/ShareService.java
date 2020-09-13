@@ -4,6 +4,7 @@ import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ShareService {
     List<ShareDTO> getAllShare(int userid);

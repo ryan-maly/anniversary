@@ -1,10 +1,14 @@
 package com.cdc.anniversary.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.ShareService;
+import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -14,8 +18,8 @@ public class ShareController {
     private ShareService shareService;
 
     @GetMapping("/all/{userid}")
-    public Object getAllShare(@PathVariable("userid") int userid){
-        return JSON.toJSONString(shareService.getAllShare(userid));
+    public CommonResult<List<ShareDTO>> getAllShare(@PathVariable("userid") int userid){
+        return CommonResult.success(shareService.getAllShare(userid));
     }
 
     @PostMapping("/add")
@@ -24,8 +28,8 @@ public class ShareController {
     }
 
     @GetMapping("/tag/{tag}/{userid}")
-    public Object getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
-        return JSON.toJSONString(shareService.getShareByTag(tag, userid));
+    public List<ShareDTO> getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
+        return shareService.getShareByTag(tag, userid);
     }
 
     @GetMapping("/{shareid}/{userid}")

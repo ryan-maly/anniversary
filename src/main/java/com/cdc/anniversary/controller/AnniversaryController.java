@@ -3,8 +3,11 @@ package com.cdc.anniversary.controller;
 import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.model.Anniversary;
 import com.cdc.anniversary.service.AnniversaryService;
+import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -14,12 +17,13 @@ public class AnniversaryController {
     private AnniversaryService anniversaryService;
 
     @RequestMapping("/addAnniversary")
-    public void addAnniversary(@RequestBody Anniversary anniversary){
+    public CommonResult<Object> addAnniversary(@RequestBody Anniversary anniversary){
         anniversaryService.addAnniversary(anniversary);
+        return CommonResult.success(null);
     }
 
     @GetMapping("/getAnniversaries/{userId}")
-    public Object getAllAnniversary(@PathVariable int userId){
-        return JSON.toJSONString(anniversaryService.getAnniversaries(userId));
+    public CommonResult<List<Anniversary>> getAllAnniversary(@PathVariable int userId){
+        return CommonResult.success(anniversaryService.getAnniversaries(userId));
     }
 }

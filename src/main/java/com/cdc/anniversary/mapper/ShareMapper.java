@@ -3,9 +3,12 @@ package com.cdc.anniversary.mapper;
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
 import org.apache.ibatis.annotations.Mapper;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
+
 
 @Mapper
 @Repository

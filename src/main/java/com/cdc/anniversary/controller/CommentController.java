@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.model.Comment;
 import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.service.CommentService;
+import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +16,13 @@ public class CommentController {
     @Autowired
     CommentService commentService;
     @GetMapping("getall/{id}")
-    public Object getComment(@PathVariable("id") int id){
-        return JSON.toJSONString(commentService.getComment(id));
+    public CommonResult<List<Comment>> getComment(@PathVariable("id") int id){
+        return CommonResult.success(commentService.getComment(id));
     }
 
     @PostMapping("/add")
-    public void addComment(@RequestBody  Comment comment){ commentService.addComment(comment); }
+    public CommonResult<Object> addComment(@RequestBody Comment comment){
+        commentService.addComment(comment);
+        return CommonResult.success(null);
+    }
 }

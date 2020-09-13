@@ -2,6 +2,7 @@ package com.cdc.anniversary.controller;
 
 import com.cdc.anniversary.model.Status;
 import com.cdc.anniversary.service.StatusService;
+import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,8 @@ public class StatusController {
     private StatusService statusService;
 
     @PostMapping("/add")
-    public void addStatus(@RequestBody Status status){
+    public CommonResult<Object> addStatus(@RequestBody Status status){
         statusService.addStatus(status);
+        return CommonResult.success(null);
     }
 }
