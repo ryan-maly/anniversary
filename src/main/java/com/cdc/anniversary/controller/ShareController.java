@@ -36,12 +36,16 @@ public class ShareController {
     }
 
     @GetMapping("/{shareid}/{userid}")
-    public Object getShareById(@PathVariable("shareid") int shareid, @PathVariable("userid") int userid){
-        return JSON.toJSONString(shareService.getShareById(shareid, userid));
+    public CommonResult<List<ShareDTO>> getShareById(@PathVariable("shareid") int shareid, @PathVariable("userid") int userid){
+        List<ShareDTO> shareList = shareService.getShareById(shareid, userid);
+        Collections.reverse(shareList);
+        return CommonResult.success(shareList);
     }
 
-    @GetMapping("/getMyShare/{userId}")
-    public Object getMyShare(@PathVariable int userId){
-        return JSON.toJSONString(shareService.getMyShare(userId));
+    @GetMapping("/getMyShare/{userid}")
+    public CommonResult<List<ShareDTO>> getMyShare(@PathVariable int userid){
+        List<ShareDTO> shareList = shareService.getMyShare(userid);
+        Collections.reverse(shareList);
+        return CommonResult.success(shareList);
     }
 }

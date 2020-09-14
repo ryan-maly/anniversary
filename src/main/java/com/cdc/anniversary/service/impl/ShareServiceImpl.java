@@ -18,19 +18,8 @@ public class ShareServiceImpl implements ShareService {
 
     @Override
     public List<ShareDTO> getAllShare(int userid) {
-        List<ShareDTO> shareDTOList = shareMapper.getAllShare(userid);
-        for (int i = 0; i < shareDTOList.size(); i++){
-            List<String> imgList = shareMapper.getImages(shareDTOList.get(i).getId());
-            Status status = shareMapper.getStatus(shareDTOList.get(i).getId(), userid);
-            if (status == null){
-                status = new Status();
-                status.setIs_favor(false);
-                status.setIs_collect(false);
-            }
-            shareDTOList.get(i).setImages(imgList);
-            shareDTOList.get(i).setIs_favor(status.isIs_favor());
-            shareDTOList.get(i).setIs_collect(status.isIs_collect());
-        }
+        List<ShareDTO> shareDTOList = shareMapper.getAllShare();
+        shareDTOList = combine(shareDTOList, userid);
         return shareDTOList;
     }
 
@@ -55,17 +44,39 @@ public class ShareServiceImpl implements ShareService {
 
     @Override
     public List<ShareDTO> getShareByTag(String tag, int userid) {
-        return shareMapper.getShareByTag(tag, userid);
+        List<ShareDTO> shareDTOList = shareMapper.getShareByTag(tag);
+        shareDTOList = combine(shareDTOList, userid);
+        return shareDTOList;
     }
 
     @Override
     public List<ShareDTO> getShareById(int shareid, int userid) {
-        return shareMapper.getShareById(shareid, userid);
+        List<ShareDTO> shareDTOList = shareMapper.getShareById(shareid);
+        shareDTOList = combine(shareDTOList,userid);
+        return shareDTOList;
     }
 
     @Override
-    public List<ShareDTO> getMyShare(int userId) {
-        return shareMapper.getMyShare(userId);
+    public List<ShareDTO> getMyShare(int userid) {
+        List<ShareDTO> shareDTOList = shareMapper.getMyShare(userid);
+        shareDTOList = combine(shareDTOList, userid);
+        return shareDTOList;
+    }
+
+    public List<ShareDTO> combine(List<ShareDTO> shareDTOList, int userid){
+        for (int i = 0; i < shareDTOList.size(); i++){
+            List<String> imgList = shareMapper.getImages(shareDTOList.get(i).getId());
+            Status status = shareMapper.getStatus(shareDTOList.get(i).getId(), userid);
+            if (status == null){
+                status = new Status();
+                status.setIs_favor(false);
+                status.setIs_collect(false);
+            }
+            shareDTOList.get(i).setImages(imgList);
+            shareDTOList.get(i).setIs_favor(status.isIs_favor());
+            shareDTOList.get(i).setIs_collect(status.isIs_collect());
+        }
+        return shareDTOList;
     }
 
 }

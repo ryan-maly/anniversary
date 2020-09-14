@@ -13,10 +13,10 @@ import java.util.List;
 @Mapper
 @Repository
 public interface ShareMapper {
-    List<ShareDTO> getAllShare(int userid);
+    List<ShareDTO> getAllShare();
     void addShare(Share share);
-    List<ShareDTO> getShareByTag(String tag, int userid);
-    List<ShareDTO> getShareById(int shareid, int userid);
+    List<ShareDTO> getShareByTag(String tag);
+    List<ShareDTO> getShareById(int shareid);
     List<ShareDTO> getMyShare(int userId);
     int getFavorNum(int shareId);
     void updateFavorNum(int favorNum, int shareId);
