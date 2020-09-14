@@ -6,8 +6,8 @@
 <mapper namespace="com.cdc.anniversary.mapper.AnniversaryMapper">
 
     <insert id="addAnniversary" parameterType="Anniversary">
-        insert into anniversary(user_id,title, icon, pubdate,remind_date,note,img)
-        values (#{user_id}, #{title}, #{icon}, #{pubdate},#{remind_Date},#{note},#{img})
+        insert into anniversary(user_id, title, pubdate, preday, note, img)
+        values (#{user_id}, #{title}, #{pubdate}, #{preday}, #{note}, #{img})
     </insert>
 
     <select id="getAnniversaries" parameterType="int" resultType="Anniversary">

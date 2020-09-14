@@ -12,9 +12,7 @@ public class Anniversary {
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date pubdate;
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @JsonFormat(pattern = "yyyy/MM/dd")
-    private Date remind_Date;
+    private Integer preday;
     private String note;
     private String img;
 
@@ -50,14 +48,6 @@ public class Anniversary {
         this.pubdate = pubdate;
     }
 
-    public Date getRemind_Date() {
-        return remind_Date;
-    }
-
-    public void setRemind_Date(Date remind_Date) {
-        this.remind_Date = remind_Date;
-    }
-
     public String getNote() {
         return note;
     }
@@ -72,5 +62,13 @@ public class Anniversary {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Integer getPreday() {
+        return preday;
+    }
+
+    public void setPreday(Integer preday) {
+        this.preday = preday;
     }
 }
