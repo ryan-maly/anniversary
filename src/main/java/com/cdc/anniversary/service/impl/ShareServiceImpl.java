@@ -28,22 +28,27 @@ public class ShareServiceImpl implements ShareService {
     }
 
     @Override
-    public void addShare(Share share) {
-        Integer user_id = share.getUser_id();
-        String tag = share.getTag();
-        String content = share.getContent();
-        Integer favor_num = share.getFavor_num();
-        Integer collect_num = share.getCollect_num();
-        Integer comment_num = share.getComment_num();
-        Date date = share.getPubdate();
-        share.setUser_id(user_id);
-        share.setTag(tag);
-        share.setContent(content);
-        share.setFavor_num(favor_num);
-        share.setCollect_num(collect_num);
-        share.setComment_num(comment_num);
-        share.setPubdate(date);
-        shareMapper.addShare(share);
+    public void addShare(ShareDTO shareDTO) {
+        Integer user_id = shareDTO.getUser_id();
+        String tag = shareDTO.getTag();
+        String content = shareDTO.getContent();
+        Integer favor_num = shareDTO.getFavor_num();
+        Integer collect_num = shareDTO.getCollect_num();
+        Integer comment_num = shareDTO.getComment_num();
+        List<String> images = shareDTO.getImages();
+        Date date = shareDTO.getPubdate();
+        shareDTO.setUser_id(user_id);
+        shareDTO.setTag(tag);
+        shareDTO.setContent(content);
+        shareDTO.setFavor_num(favor_num);
+        shareDTO.setCollect_num(collect_num);
+        shareDTO.setComment_num(comment_num);
+        shareDTO.setPubdate(date);
+        shareMapper.addShare(shareDTO);
+        Integer shareid = shareDTO.getId();
+        for (int i = 0; i < images.size(); i++){
+            shareMapper.addImage(shareid, images.get(i));
+        }
     }
 
     @Override

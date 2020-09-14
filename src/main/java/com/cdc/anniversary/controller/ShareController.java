@@ -26,8 +26,8 @@ public class ShareController {
     }
 
     @PostMapping("/add")
-    public void addShare(@RequestBody Share share){
-        shareService.addShare(share);
+    public void addShare(@RequestBody ShareDTO shareDTO){
+        shareService.addShare(shareDTO);
     }
 
     @GetMapping("/tag/{tag}/{userid}")

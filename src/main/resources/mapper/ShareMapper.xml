@@ -28,9 +28,14 @@
         where id = #{shareid}
     </select>
 
-    <insert id="addShare" parameterType="Share">
+    <insert id="addShare" parameterType="com.cdc.anniversary.dto.ShareDTO" useGeneratedKeys="true" keyProperty="id">
         insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
         values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})
+    </insert>
+
+    <insert id="addImage">
+        insert into share_img(share_id, img)
+        values (#{param1}, #{param2})
     </insert>
 
     <select id="getMyShare" parameterType="int" resultType="com.cdc.anniversary.dto.ShareDTO">

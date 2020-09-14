@@ -9,7 +9,6 @@ public class Anniversary {
     private Integer id;
     private Integer user_id;
     private String title;
-    private Integer icon;
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date pubdate;
@@ -41,14 +40,6 @@ public class Anniversary {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getIcon() {
-        return icon;
-    }
-
-    public void setIcon(Integer icon) {
-        this.icon = icon;
     }
 
     public Date getPubdate() {
