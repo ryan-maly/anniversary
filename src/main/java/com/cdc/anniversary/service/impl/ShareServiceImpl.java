@@ -3,6 +3,7 @@ package com.cdc.anniversary.service.impl;
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.mapper.ShareMapper;
 import com.cdc.anniversary.model.Share;
+import com.cdc.anniversary.model.Status;
 import com.cdc.anniversary.service.ShareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,15 @@ public class ShareServiceImpl implements ShareService {
         List<ShareDTO> shareDTOList = shareMapper.getAllShare(userid);
         for (int i = 0; i < shareDTOList.size(); i++){
             List<String> imgList = shareMapper.getImages(shareDTOList.get(i).getId());
+            Status status = shareMapper.getStatus(shareDTOList.get(i).getId(), userid);
+            if (status == null){
+                status = new Status();
+                status.setIs_favor(false);
+                status.setIs_collect(false);
+            }
             shareDTOList.get(i).setImages(imgList);
+            shareDTOList.get(i).setIs_favor(status.isIs_favor());
+            shareDTOList.get(i).setIs_collect(status.isIs_collect());
         }
         return shareDTOList;
     }
@@ -59,8 +68,4 @@ public class ShareServiceImpl implements ShareService {
         return shareMapper.getMyShare(userId);
     }
 
-    @Override
-    public List<String> getImage(int shareid) {
-        return null;
-    }
 }

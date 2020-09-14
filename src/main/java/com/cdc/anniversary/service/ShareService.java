@@ -2,6 +2,7 @@ package com.cdc.anniversary.service;
 
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.model.Share;
+import com.cdc.anniversary.model.Status;
 
 import java.util.List;
 
@@ -11,5 +12,4 @@ public interface ShareService {
     List<ShareDTO> getShareByTag(String tag, int userid);
     List<ShareDTO> getShareById(int shareid, int userid);
     List<ShareDTO> getMyShare(int userId);
-    List<String> getImage(int shareid);
 }
