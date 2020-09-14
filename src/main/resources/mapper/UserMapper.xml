@@ -12,4 +12,9 @@
         insert into user(username, avatar, gender, phone,integration)
         values (#{username}, #{avatar}, #{gender}, #{phone},#{integration})
     </insert>
+
+    <select id="getUser" parameterType="int" resultType="User">
+        select * from user
+        where id = #{userid}
+    </select>
 </mapper>

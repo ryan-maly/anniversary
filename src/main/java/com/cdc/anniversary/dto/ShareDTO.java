@@ -6,6 +6,8 @@ import java.util.List;
 
 
 public class ShareDTO extends Share {
+    public String username;
+    public String avatar;
     public boolean is_favor;
     public boolean is_collect;
     public List<String> images;
@@ -32,5 +34,21 @@ public class ShareDTO extends Share {
 
     public void setImages(List<String> images) {
         this.images = images;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

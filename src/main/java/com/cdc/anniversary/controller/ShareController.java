@@ -31,8 +31,10 @@ public class ShareController {
     }
 
     @GetMapping("/tag/{tag}/{userid}")
-    public List<ShareDTO> getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
-        return shareService.getShareByTag(tag, userid);
+    public CommonResult<List<ShareDTO>> getShareByTag(@PathVariable("tag") String tag, @PathVariable("userid") int userid){
+        List<ShareDTO> shareList = shareService.getShareByTag(tag, userid);
+        Collections.reverse(shareList);
+        return CommonResult.success(shareList);
     }
 
     @GetMapping("/{shareid}/{userid}")

@@ -5,15 +5,6 @@ public class Store {
     private Integer userId;
     private Integer shareId;
 
-    @Override
-    public String toString() {
-        return "Collection{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", shareId=" + shareId +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }

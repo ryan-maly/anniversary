@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
     void UseIntegration(int integration);
-
     void addUser(User user);
+    User getUser(int userid);
 }
