@@ -17,9 +17,22 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <WxJava.version>3.6.0</WxJava.version>
     </properties>
 
     <dependencies>
+        <!-- 小程序开发包-->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>${WxJava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
