@@ -3,10 +3,9 @@ package com.cdc.anniversary.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.cdc.anniversary.model.Template;
 import com.cdc.anniversary.model.TemplateParam;
-import com.cdc.anniversary.service.AccessTokenService;
 import com.cdc.anniversary.service.TemplateService;
-import com.cdc.anniversary.util.CommonResult;
 import com.cdc.anniversary.util.CommonUtil;
+import com.cdc.anniversary.util.HttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -20,20 +19,31 @@ public class TemplateServiceImpl implements TemplateService {
     private StringRedisTemplate stringRedisTemplate;
 
     @Override
-    public Template sendMsg2User() {
+    public Template sendMsg2User(String appid, String secret, String sessionid, Template template) {
+        //获取ACCESS TOKEN
+        String accessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="
+                + appid + "&secret=" + secret;
+        String accessTokenStr = HttpUtil.sendGet(accessTokenUrl);
+        JSONObject accessTokenJson = JSONObject.parseObject(accessTokenStr);
+        String accessToken = accessTokenJson.getString("access_token");
+
+        //创建模板并发送
         Template newTemplate = new Template();
-        newTemplate.setTemplate_id("jE0ppyWaasrVULxEVs019iP0omQKfJ92hxY8jQUOiLo");
-        newTemplate.setTouser("ocmbt4qkP6XrRZk8LMKLa0RrfUjk");
-        List<TemplateParam> paras=new ArrayList<TemplateParam>();
-        paras.add(new TemplateParam("thing1","张三的生日"));
-        paras.add(new TemplateParam("name2","张三"));
-        paras.add(new TemplateParam("thing3","7天后"));
-        paras.add(new TemplateParam("date4","2020年12月9日"));
-        paras.add(new TemplateParam("thing5","别忘了买礼物"));
+        newTemplate.setTemplate_id("jE0ppyWaasrVULxEVs019jzKfsm9mzPPABQv2A7-RR8");
+        String session = stringRedisTemplate.opsForValue().get(sessionid);
+        JSONObject sessionJson = JSONObject.parseObject(session);
+        String openid = sessionJson.getString("openid");
+        newTemplate.setTouser(openid);
+
+        List<TemplateParam> paras = template.getTemplateParamList();
+//        paras.add(new TemplateParam("thing1","张三的生日"));
+//        paras.add(new TemplateParam("thing3","7天后"));
+//        paras.add(new TemplateParam("date4","2020年12月9日"));
+//        paras.add(new TemplateParam("thing5","别忘了买礼物"));
+        System.out.println("paras:" + paras);
         newTemplate.setTemplateParamList(paras);
         String requestUrl="https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=ACCESS_TOKEN";
-        String token = "37_r-b5Mmi7p3CFo8qgWsXnPHr4dP_3mwQQFL_bF0dZsXw2iU1eyVWTy3PUdtneVBPlkwUKa4sCIJNKMTQeb97YOndGKZ_44SknXszmjfFz5uTr-Jn5O0tr8C0dpDmNwUg14DhrTOLGG_K-_zgiIHKbAIADCF";
-        requestUrl=requestUrl.replace("ACCESS_TOKEN", token);
+        requestUrl=requestUrl.replace("ACCESS_TOKEN", accessToken);
         System.out.println("请求的url：" + requestUrl);
 
         System.out.println(newTemplate.toJSON());

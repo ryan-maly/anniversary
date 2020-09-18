@@ -5,6 +5,7 @@ public class Code2Session {
     private String session_key;
     private int errcode;
     private String errmsg;
+    private String sessionid;
 
     @Override
     public String toString() {
@@ -14,6 +15,14 @@ public class Code2Session {
                 ", errcode=" + errcode +
                 ", errmsg='" + errmsg + '\'' +
                 '}';
+    }
+
+    public String getSessionid() {
+        return sessionid;
+    }
+
+    public void setSessionid(String sessionid) {
+        this.sessionid = sessionid;
     }
 
     public String getOpenid() {
