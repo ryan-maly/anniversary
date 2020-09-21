@@ -29,7 +29,7 @@ public class TemplateServiceImpl implements TemplateService {
 
         //创建模板并发送
         Template newTemplate = new Template();
-        newTemplate.setTemplate_id("jE0ppyWaasrVULxEVs019jzKfsm9mzPPABQv2A7-RR8");
+        newTemplate.setTemplate_id(template.getTemplate_id());
         String session = stringRedisTemplate.opsForValue().get(sessionid);
         JSONObject sessionJson = JSONObject.parseObject(session);
         String openid = sessionJson.getString("openid");

@@ -10,4 +10,8 @@ import java.util.List;
 @Repository
 public interface CollectionMapper {
     List<ShareDTO> getMyCollection(int id);
+
+    void addCollection(int userid, int shareid);
+
+    void delCollection(int userid, int shareid);
 }

@@ -1,5 +1,6 @@
 package com.cdc.anniversary.service.impl;
 
+import com.cdc.anniversary.mapper.CollectionMapper;
 import com.cdc.anniversary.mapper.ShareMapper;
 import com.cdc.anniversary.mapper.StatusMapper;
 import com.cdc.anniversary.model.Status;
@@ -13,6 +14,8 @@ public class StatusServiceImpl implements StatusService {
     private StatusMapper statusMapper;
     @Autowired
     private ShareMapper shareMapper;
+    @Autowired
+    private CollectionMapper collectionMapper;
 
     @Override
     public void addStatus(Status status) {
@@ -29,9 +32,20 @@ public class StatusServiceImpl implements StatusService {
         if (dbStatus != null){
             statusMapper.updateStatus(status);
             updateStatusNum(status, dbStatus);
+            Status latestStatus = statusMapper.getStatus(shareid, userid);
+            if (dbStatus.isIs_collect() == false && latestStatus.isIs_collect() == true){
+                collectionMapper.addCollection(userid, shareid);
+            }
+            if (dbStatus.isIs_collect() == true && latestStatus.isIs_collect() == false) {
+                collectionMapper.delCollection(userid ,shareid);
+            }
         }else {
             statusMapper.addStatus(status);
             addStatusNum(status);
+            Status latestStatus = statusMapper.getStatus(shareid, userid);
+            if (latestStatus.isIs_collect() == true){
+                collectionMapper.addCollection(userid, shareid);
+            }
         }
     }
 
