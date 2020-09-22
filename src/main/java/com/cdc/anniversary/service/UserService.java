@@ -5,5 +5,7 @@ import com.cdc.anniversary.model.User;
 public interface UserService {
     void UseIntegration(int integration);
 
-    void addUser(User user);
+    User addUser(User user);
+
+    User getUser(int userid);
 }

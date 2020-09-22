@@ -25,7 +25,6 @@ public class AnniversaryController {
     @GetMapping("/getAnniversaries/{userId}")
     public CommonResult<List<Anniversary>> getAllAnniversary(@PathVariable int userId){
         List<Anniversary> anniversaryList = anniversaryService.getAnniversaries(userId);
-        Collections.reverse(anniversaryList);
         return CommonResult.success(anniversaryList);
     }
 }

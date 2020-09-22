@@ -41,9 +41,11 @@ public class GuideController {
 
         if(guideService.isExchanged(id,user_id)!=null){
             return CommonResult.success(null, "已订阅，请勿重复操作");
-        }else guideService.addExchange(id,user_id);
-        userService.UseIntegration(integration);
-        return CommonResult.success(null, "订阅成功");
+        }else {
+            guideService.addExchange(id,user_id);
+            userService.UseIntegration(integration);
+            return CommonResult.success(null, "订阅成功");
+        }
     }
 
 

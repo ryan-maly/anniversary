@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
+
     @Override
     public void UseIntegration(int integration) {
         userMapper.UseIntegration(integration);
@@ -17,7 +18,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUser(User user) {
+    public User addUser(User user) {
         userMapper.addUser(user);
+        return user;
+    }
+
+    @Override
+    public User getUser(int userid) {
+        return userMapper.getUser(userid);
     }
 }

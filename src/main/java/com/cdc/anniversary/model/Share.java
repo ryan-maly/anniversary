@@ -12,9 +12,9 @@ public class Share {
     public Integer user_id;
     public String tag;
     public String content;
-    public Integer favor_num;
-    public Integer collect_num;
-    public Integer comment_num;
+    public Integer favor_num = 0;
+    public Integer collect_num = 0;
+    public Integer comment_num = 0;
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @JsonFormat(pattern = "yyyy/MM/dd")
     public Date pubdate;

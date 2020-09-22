@@ -4,9 +4,7 @@ import com.cdc.anniversary.model.User;
 import com.cdc.anniversary.service.UserService;
 import com.cdc.anniversary.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -16,9 +14,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/addUser")
-    public CommonResult<Object> addUser(@RequestBody User user){
-        userService.addUser(user);
-        return CommonResult.success(null);
+    public CommonResult<User> addUser(@RequestBody User user){
+        return CommonResult.success(userService.addUser(user));
+    }
+
+    @GetMapping("/get/{userid}")
+    public CommonResult<User> getUser(@PathVariable int userid){
+        return CommonResult.success(userService.getUser(userid));
     }
 
 }
