@@ -1,8 +1,6 @@
 package com.cdc.anniversary.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.cdc.anniversary.dto.GuideDTO;
-import com.cdc.anniversary.model.Comment;
 import com.cdc.anniversary.model.Guide;
 import com.cdc.anniversary.service.GuideService;
 import com.cdc.anniversary.service.UserService;
@@ -22,18 +20,9 @@ public class GuideController {
     GuideService guideService;
     @Autowired
     UserService userService;
-    @GetMapping("/getAll")
-    public CommonResult<List<Guide>> getAllGuide(){
-        return CommonResult.success(guideService.getAllGuide());
-    }
-
-    @GetMapping("/{id}/{user_id}")
-    public CommonResult<Object> getGuideByID(@PathVariable("id") int id, @PathVariable("user_id" )int user_id){
-        boolean isExchange = false;
-        if(guideService.isExchanged(id, user_id)!=null){
-            isExchange=true;
-            return CommonResult.success(guideService.isExchanged(id,user_id));
-        }else return CommonResult.success(guideService.getGuideByID(id));
+    @GetMapping("/getAll/{userid}")
+    public CommonResult<List<GuideDTO>> getAllGuide(@PathVariable int userid){
+        return CommonResult.success(guideService.getAllGuide(userid));
     }
 
     @GetMapping("/addExchange/{id}/{user_id}/{integration}")

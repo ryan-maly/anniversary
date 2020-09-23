@@ -2,10 +2,13 @@ package com.cdc.anniversary.service.impl;
 
 import com.cdc.anniversary.dto.GuideDTO;
 import com.cdc.anniversary.mapper.GuideMapper;
+import com.cdc.anniversary.model.Exchange;
 import com.cdc.anniversary.model.Guide;
 import com.cdc.anniversary.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,13 +17,19 @@ public class GuideServiceImpl implements GuideService {
     GuideMapper guideMapper;
 
     @Override
-    public List<Guide> getAllGuide() {
-        return guideMapper.getAllGuide();
-    }
-
-    @Override
-    public Guide getGuideByID(int id) {
-        return guideMapper.getGuideByID(id);
+    public List<GuideDTO> getAllGuide(int userid) {
+        List<GuideDTO> guideDTOList = guideMapper.getAllGuide();
+        Exchange exchange = null;
+        for (GuideDTO guideDTO : guideDTOList){
+            guideDTO.setUser_id(userid);
+            exchange = guideMapper.getExchangeById(userid, guideDTO.getId());
+            if (exchange != null){
+                guideDTO.setExchange(true);
+            }else {
+                guideDTO.setExchange(false);
+            }
+        }
+        return guideDTOList;
     }
 
     @Override
