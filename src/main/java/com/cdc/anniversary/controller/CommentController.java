@@ -15,9 +15,9 @@ import java.util.List;
 public class CommentController {
     @Autowired
     CommentService commentService;
-    @GetMapping("getall/{id}")
-    public CommonResult<List<Comment>> getComment(@PathVariable("id") int id){
-        return CommonResult.success(commentService.getComment(id));
+    @GetMapping("getall")
+    public CommonResult<List<Comment>> getComment(){
+        return CommonResult.success(commentService.getComment());
     }
 
     @PostMapping("/add")

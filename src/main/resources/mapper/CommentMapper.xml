@@ -5,9 +5,7 @@
 
 <mapper namespace="com.cdc.anniversary.mapper.CommentMapper">
     <select id="getComment" parameterType="int" resultType="com.cdc.anniversary.model.Comment">
-        select x.*
-        from comment x
-        where x.share_id = #{id}
+        select * from comment
     </select>
     <insert id="addComment" parameterType="com.cdc.anniversary.model.Comment">
         insert into comment (share_id,user_id,parent_id,content,pubdate)

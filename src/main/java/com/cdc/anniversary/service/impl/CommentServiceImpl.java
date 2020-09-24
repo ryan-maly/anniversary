@@ -17,8 +17,8 @@ public class CommentServiceImpl implements CommentService {
     ShareMapper shareMapper;
 
     @Override
-    public List<Comment> getComment(int id) {
-        return commentMapper.getComment(id);
+    public List<Comment> getComment() {
+        return commentMapper.getComment();
     }
 
     @Override

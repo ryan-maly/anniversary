@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CommentMapper {
-    List<Comment> getComment(int id);
+    List<Comment> getComment();
     void addComment(Comment comment);
 }

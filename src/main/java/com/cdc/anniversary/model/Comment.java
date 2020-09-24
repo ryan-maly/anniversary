@@ -6,11 +6,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class Comment {
-    public Integer id;
-    public Integer share_id;
-    public Integer user_id;
-    public Integer parent_id;
-    public String content;
+    public Integer id;    //评论id
+    public Integer share_id;    //评论的动态id
+    public Integer user_id;    //评论的用户id
+    public Integer parent_id;    //父级评论id
+    public String content;    //内容
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @JsonFormat(pattern = "yyyy/MM/dd")
     public Date pubdate;
