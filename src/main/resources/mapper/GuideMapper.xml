@@ -19,7 +19,7 @@
     </select>
     <insert id="addExchange" parameterType="int"   >
         insert into exchange (guide_id,user_id)
-        values (#{para1},#{param2})
+        values (#{param1},#{param2})
     </insert>
 
 
