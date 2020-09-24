@@ -3,7 +3,7 @@ package com.cdc.anniversary.model;
 public class Guide {
     public Integer id;
     public String title;
-    public String guideContent;
+    public String content;
     public String img;
     public String integration;
 
@@ -23,12 +23,12 @@ public class Guide {
         this.title = title;
     }
 
-    public String getGuideContent() {
-        return guideContent;
+    public String getContent() {
+        return content;
     }
 
-    public void setGuideContent(String guideContent) {
-        this.guideContent = guideContent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getImg() {
