@@ -1,9 +1,9 @@
 package com.cdc.anniversary.service.impl;
 
+import com.cdc.anniversary.dto.CommentDTO;
 import com.cdc.anniversary.dto.ShareDTO;
 import com.cdc.anniversary.mapper.ShareMapper;
 import com.cdc.anniversary.mapper.UserMapper;
-import com.cdc.anniversary.model.Share;
 import com.cdc.anniversary.model.Status;
 import com.cdc.anniversary.model.User;
 import com.cdc.anniversary.service.ShareService;
@@ -74,6 +74,7 @@ public class ShareServiceImpl implements ShareService {
 
     public List<ShareDTO> combine(List<ShareDTO> shareDTOList, int userid){
         for (int i = 0; i < shareDTOList.size(); i++){
+            //拼接状态和图片
             List<String> imgList = shareMapper.getImages(shareDTOList.get(i).getId());
             Status status = shareMapper.getStatus(shareDTOList.get(i).getId(), userid);
             User user = userMapper.getUser(shareDTOList.get(i).getUser_id());
@@ -87,6 +88,10 @@ public class ShareServiceImpl implements ShareService {
             shareDTOList.get(i).setIs_collect(status.isIs_collect());
             shareDTOList.get(i).setUsername(user.getUsername());
             shareDTOList.get(i).setAvatar(user.getAvatar());
+
+            //拼接评论
+            List<CommentDTO> commentDTOS = shareMapper.getComments(shareDTOList.get(i).getId());
+            shareDTOList.get(i).setComments(commentDTOS);
         }
         return shareDTOList;
     }

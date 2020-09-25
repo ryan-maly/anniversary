@@ -29,8 +29,8 @@
     </select>
 
     <insert id="addShare" parameterType="com.cdc.anniversary.dto.ShareDTO" useGeneratedKeys="true" keyProperty="id">
-        insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
-        values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})
+        insert into share(user_id, tag, content, favor_num, collect_num, comment_num, comment, pubdate)
+        values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{comment}, #{pubdate})
     </insert>
 
     <insert id="addImage">
@@ -75,4 +75,10 @@
         set comment_num = #{param2}
         where id = #{param1}
     </update>
+
+    <select id="getComments" parameterType="int" resultType="com.cdc.anniversary.dto.CommentDTO">
+        select c.*, u.username cusername
+        from comment c, user u
+        where share_id = #{shareid} and c.user_id = u.id
+    </select>
 </mapper>

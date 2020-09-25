@@ -1,7 +1,8 @@
 package com.cdc.anniversary.mapper;
 
+import com.cdc.anniversary.dto.CommentDTO;
 import com.cdc.anniversary.dto.ShareDTO;
-import com.cdc.anniversary.model.Share;
+import com.cdc.anniversary.model.Comment;
 import com.cdc.anniversary.model.Status;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,4 +28,5 @@ public interface ShareMapper {
     void updateCommentNum(int shareId, int commentId);
     List<String> getImages(int shareid);
     Status getStatus(int shareid, int userid);
+    List<CommentDTO> getComments(int shareid);
 }

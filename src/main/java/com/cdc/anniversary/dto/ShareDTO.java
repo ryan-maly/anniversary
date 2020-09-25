@@ -11,6 +11,7 @@ public class ShareDTO extends Share {
     public boolean is_favor;
     public boolean is_collect;
     public List<String> images;
+    public List<CommentDTO> comments;
 
     public boolean isIs_favor() {
         return is_favor;
@@ -50,5 +51,13 @@ public class ShareDTO extends Share {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
     }
 }
