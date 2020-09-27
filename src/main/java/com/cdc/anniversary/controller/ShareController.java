@@ -26,8 +26,9 @@ public class ShareController {
     }
 
     @PostMapping("/add")
-    public void addShare(@RequestBody ShareDTO shareDTO){
+    public CommonResult<Object> addShare(@RequestBody ShareDTO shareDTO){
         shareService.addShare(shareDTO);
+        return CommonResult.success(null);
     }
 
     @GetMapping("/tag/{tag}/{userid}")

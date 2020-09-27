@@ -36,7 +36,7 @@ public class ShareServiceImpl implements ShareService {
         Integer collect_num = shareDTO.getCollect_num();
         Integer comment_num = shareDTO.getComment_num();
         List<String> images = shareDTO.getImages();
-        Date date = shareDTO.getPubdate();
+        Date date = new Date();
         shareDTO.setUser_id(user_id);
         shareDTO.setTag(tag);
         shareDTO.setContent(content);
@@ -46,8 +46,10 @@ public class ShareServiceImpl implements ShareService {
         shareDTO.setPubdate(date);
         shareMapper.addShare(shareDTO);
         Integer shareid = shareDTO.getId();
-        for (int i = 0; i < images.size(); i++){
-            shareMapper.addImage(shareid, images.get(i));
+        if (images != null){
+            for (int i = 0; i < images.size(); i++){
+                shareMapper.addImage(shareid, images.get(i));
+            }
         }
     }
 

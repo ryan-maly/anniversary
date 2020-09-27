@@ -29,8 +29,8 @@
     </select>
 
     <insert id="addShare" parameterType="com.cdc.anniversary.dto.ShareDTO" useGeneratedKeys="true" keyProperty="id">
-        insert into share(user_id, tag, content, favor_num, collect_num, comment_num, comment, pubdate)
-        values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{comment}, #{pubdate})
+        insert into share(user_id, tag, content, favor_num, collect_num, comment_num, pubdate)
+        values (#{user_id}, #{tag}, #{content}, #{favor_num}, #{collect_num}, #{comment_num}, #{pubdate})
     </insert>
 
     <insert id="addImage">
